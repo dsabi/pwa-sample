@@ -1,0 +1,21 @@
+{
+	"name": "WorkboxAngular",
+	"short_name": "WorkAngular",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "/assets/angular.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/assets/angular.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#ac1f23",
+	"description": "Angular 8 and Workbox combined!",
+	"background_color": "#ffffff",
+	"display": "standalone"
+}
