@@ -1,9 +1,10 @@
 module.exports = {
 	globDirectory: 'dist/workbox-angular/',
-	globPatterns: ['**/*.{txt,ico,js,css}'],
+	globPatterns: ['**/*.{txt,ico,js,html,css,png,json}'],
 	swDest: 'dist/workbox-angular/sw.js',
 	cleanupOutdatedCaches: true,
 	clientsClaim: true,
+	skipWaiting: true,
 	importScripts: ['version_sw.js'],
 	runtimeCaching: [
 		{
@@ -11,7 +12,7 @@ module.exports = {
 			urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
 
 			// Apply a cache-first strategy.
-			handler: 'NetworkFirst',
+			handler: 'StaleWhileRevalidate',
 
 			options: {
 				// Use a custom cache name.

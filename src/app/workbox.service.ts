@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Workbox} from 'workbox-window';
 import {Subject, BehaviorSubject} from 'rxjs';
+import {NativeNotificationService} from './native-notification.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -8,6 +9,7 @@ import {Subject, BehaviorSubject} from 'rxjs';
 export class WorkBoxService {
 	wb: Workbox;
 	swVersion = new BehaviorSubject('');
+	constructor(private notify: NativeNotificationService) {}
 	async getServiceWorkerVersion() {
 		this.swVersion.next(await this.wb.messageSW({type: 'GET_VERSION'}));
 		console.log('Service Worker version:', this.swVersion.value);
@@ -48,6 +50,10 @@ export class WorkBoxService {
 	}
 	private waiting() {
 		this.wb.addEventListener('waiting', event => {
+			this.notify.notifyUser({
+				header: 'New update have arrived!',
+				message: `We've just released a new version of our application`,
+			});
 			console.log(
 				`A new service worker has installed, but it can't activate` +
 					`until all tabs running the current version have fully unloaded.`,

@@ -23,7 +23,7 @@
 						"polyfills": "src/polyfills.ts",
 						"tsConfig": "tsconfig.app.json",
 						"aot": false,
-						"assets": ["src/favicon.ico", "src/assets", "src/custom_sw.js"],
+						"assets": ["src/favicon.ico", "src/assets", "src/version_sw.js"],
 						"styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "src/styles.scss"],
 						"scripts": []
 					},
