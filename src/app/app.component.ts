@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 		this.window.addEventListener('appinstalled', evt => {
 			console.log('pwa installed');
 		});
-		this.workbox.getServiceWorkerVersion();
+		// this.workbox.getServiceWorkerVersion();
 	}
 	installApp(e) {
 		this.deferredPrompt.prompt();
